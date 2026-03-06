@@ -94,25 +94,23 @@ $text-dark: #444;
   margin-bottom: 10px;
   gap: 10px;
 
-  input[type="text"] {
-    flex: 1;
-    border: none;
-    border-bottom: 1px solid #ddd;
-    padding: 8px;
-    outline: none;
-
-    &:focus {
-      border-bottom: 2px solid $primary-purple;
-    }
-  }
-
   .delete-opt-btn {
-    background: none;
+    background: transparent;
     border: none;
     color: #ccc;
     cursor: pointer;
     font-size: 18px;
     &:hover { color: #ff4d4f; }
+  }
+
+  .opt-choice-input{
+    height: 36px;
+    width: 52vw;
+    border: transparent;
+    outline: none;
+    &:focus {
+        border-bottom: 2px solid $light-purple;
+      }
   }
 }
 
@@ -232,3 +230,11 @@ $text-dark: #444;
     margin-top: 20px;
   }
 }
+
+.opt-text-input{
+    height: 48px;
+    width: 52vw;
+    border: transparent;
+    border-bottom: 2px solid $light-purple;
+
+  }

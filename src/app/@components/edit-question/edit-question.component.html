@@ -35,8 +35,7 @@
       <p>問卷名稱:</p>
       <input class="title-input" [(ngModel)]="questionnares.title" placeholder="問卷標題">
     </div>
-
-
+<!-- -----------------card-head--------------------- -->
   @for (q of questionnares.questions; track q.id; let i = $index) {
     <div class="question-card">
       <div class="card-header">
@@ -48,17 +47,17 @@
             <option value="checkbox">多選</option>
         </select>
       </div>
-<!-- -----------------body--------------------- -->
+<!-- -----------------card-body--------------------- -->
       <div class="card-body">
         @if (q.type === 'text') {
-        <input type="text">
+        <input type="text" class="opt-text-input" placeholder="作答...">
         }
         @if (q.type === 'radio' || q.type === 'checkbox') {
             @for (opt of q.options; track $index; let optIdx = $index) {
               <div class="option-row">
                 <input [type]="q.type" disabled>
-                <input [(ngModel)]="q.options![optIdx]" placeholder="選項內容">
-                <button (click)="deleteOption(q, optIdx)">✕</button>
+                <input [(ngModel)]="q.options![optIdx]" placeholder="選項內容" class="opt-choice-input">
+                <button (click)="deleteOption(q, optIdx)" class="delete-opt-btn">✕</button>
               </div>
             }
             <button class="add-opt-btn" (click)="addOption(q)">+ 新增選項</button>

@@ -93,7 +93,6 @@ input[type="date"]:hover{
   justify-content: space-around;
   align-items: center;
   background-color: #FEF8E0;
-  padding-top: 50px;
 
   // 當處於編輯模式時
   &.editing-active {
@@ -213,12 +212,16 @@ input[type="date"]:hover{
   cursor: pointer;
 }
 
-// .creatNew-background{
-//   background-color: #FEF8E0;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// }
-
+.console{
+  background-color: #FEF8E0;
+  align-items: center;
+  padding-top: 75px;
+  padding-bottom: 25px;
+}
+h1{
+  color: #443D4F;
+  margin: 0;
+  text-align: center;
+}
 
 
