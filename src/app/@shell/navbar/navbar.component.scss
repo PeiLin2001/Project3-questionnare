@@ -1,0 +1,47 @@
+.nav{
+  display: flex;
+  background-color: #857FD2;
+  padding: 16px;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+
+button{
+  color: white;
+  border: transparent;
+  padding: 8px;
+  border-radius: 3px;
+  margin: 0;
+  width: 5vw;
+}
+
+#signin{
+  background-color: transparent;
+  margin-right: 8px;
+}
+
+#signin:hover{
+  background-color: #736fce;
+  cursor: pointer;
+}
+
+#create{
+  background-color: #9893D9;
+}
+
+#create:hover{
+  background-color: #a6a1f3;
+  cursor: pointer;
+}
+
+.logo{
+  font-size: 16px;
+  font-weight: 800;
+  background-color: transparent;
+  margin: 0;
+}
+

@@ -1,0 +1,79 @@
+<!-- filter bar -->
+<div class="filtbar">
+  <!-- filter bar . search -->
+  <div class="search-wrapper">
+    <span class="material-symbols-outlined">search</span>
+    <input type="text" placeholder="以問卷名稱搜尋" [(ngModel)]="searchText">
+  </div>
+  <!-- filter bar . choosedate -->
+  <div class="choosedate">
+
+    <!-- filter bar . choosedate . from -->
+    <div class="theday">
+    <label>From:</label><input type="date" [(ngModel)]="fromDate">
+    </div>
+
+    <!-- filter bar . choosedate . to -->
+    <div class="theday">
+    <label>To:</label><input type="date" [(ngModel)]="toDate">
+    </div>
+
+  </div>
+
+</div>
+<!-- filter bar is on above -->
+
+
+<!-- list -->
+<div class="listcontent" [class.editing-active]="isEditing">
+@for (item of filteredList; track $index) {
+
+  @if (isEditing) {
+    <button class="delete-btn" (click)="deleteQuestionnaire(item.id)"><span class="material-symbols-outlined">delete</span></button>
+  }
+
+  <button class="questionlist"  [routerLink]="['/ed',item.id]">
+  <div class="data">
+    <p class="dataid">#{{item.id}}</p>
+  </div>
+
+  <div class="data">
+    <p class="datatitle">{{item.title}}</p>
+  </div>
+
+  <div class="data">
+    <p class="datadate">{{item.startDate}}</p>
+  </div>
+
+  <div class="data">
+    <p class="datadate">{{item.endDate}}</p>
+  </div>
+
+<div class="data">
+  @if (item.status === 'notStarted' || item.status === 'done')
+{
+  <p class="avaliable">進行中</p>
+}
+
+@if (item.status === 'unavailable')
+{
+  <p class="unavailable">已截止</p>
+}
+</div>
+
+</button><!--btn inside the for loop "filteredList" -->
+
+} <!--braces of the for loop "filteredList" -->
+<!-- 為了讓問卷不要在grid內跑版，新增一個空的div -->
+<div></div>
+<button class="creatNew" matButton="elevated" (click)="openDialog('0ms', '0ms')">新建問卷</button>
+<!-- the button is for creating a new questionnare -->
+<button class="edit-btn" (click)="toggleEditMode()"><span class="material-symbols-outlined">edit</span></button>
+
+
+
+
+</div>
+<!-- list content is on above -->
+ <!-- <div class="creatNew-background">
+</div> -->

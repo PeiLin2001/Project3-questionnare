@@ -1,0 +1,7 @@
+<div class="signin-layout">
+<input type="text" [(ngModel)]="account" placeholder="帳號" class="content" >
+<input type="text" [(ngModel)]="password" placeholder="密碼" class="content">
+<button (click)="signin()" [disabled]="count >= 3" class="content-but">登入</button>
+<p>{{reminder}}</p>
+</div>
+

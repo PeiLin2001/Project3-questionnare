@@ -1,0 +1,38 @@
+@if (questionnares) {
+<div class="filling-container">
+
+    <div class="questionnaire-card">
+      <h1 class="form-title">{{ questionnares.title }}</h1>
+      <p style="color: #666;">請依照您的實際感受填寫，謝謝！</p>
+    </div>
+
+  @for (q of questionnares.questions; track q.id) {
+    <div class="questionnaire-card">
+      <p class="question-title">{{ q.title }}</p>
+
+      @if (q.type === 'text') {
+        <input type="text" class="text-input" placeholder="您的回答">
+      }
+
+      @if (q.type === 'radio') {
+        @for (opt of q.options; track $index) {
+          <label>
+            <input type="radio" name="{{q.id}}">
+            {{ opt }}
+          </label>
+        }
+      }
+    </div>
+  }
+
+    <div class="submit-area">
+      <button type="submit">提交問卷</button>
+    </div>
+
+  </div>
+}@else {
+  <div class="filling-container">
+    <p>載入中或找不到問卷...</p>
+  </div>
+}
+

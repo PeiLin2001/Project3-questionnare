@@ -1,0 +1,63 @@
+.layout{
+    @media (max-width: 768px) {
+
+      align-items: center;
+
+    button {
+      width: 80%;
+    }
+    }
+
+    @media (max-width: 600px) {
+
+      align-items: center;
+
+    button {
+      width: 80%;
+    }
+
+    h3{
+      font-size: 24px;
+    }
+    }
+}
+
+
+
+h1{
+  font-size: clamp(32px, 8vw, 80px);
+  font-weight: 900;
+  margin: 0;
+}
+
+h3{
+  font-size: clamp(24px, 8vw, 60px);
+  font-weight: 600;
+  margin: 0;
+}
+
+button{
+  background-color: #857FD2;
+  width: 40%;
+
+  border-radius: 16px;
+  border-color: transparent;
+
+  padding: 26px;
+  margin: 64px;
+  margin-top: 0px;
+
+  color: white;
+  font-size: clamp(20px, 8vw, 48px);
+  text-align: center;
+}
+
+button:hover{
+  background-color: #a6a1f3;
+  cursor: pointer;
+}
+
+.welcome{
+  margin: 64px;
+  margin-bottom: 16px;
+}

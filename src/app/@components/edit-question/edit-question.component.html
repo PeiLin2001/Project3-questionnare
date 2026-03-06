@@ -1,0 +1,84 @@
+@if (questionnares) {
+
+    <div class="nav-tabs">
+      <button [class.active]="currentTab === 'edit'" (click)="switchTab('edit')">
+        問題編輯
+      </button>
+      <button [class.active]="currentTab === 'results'" (click)="switchTab('results')">
+        查看回覆
+      </button>
+    </div>
+
+
+<!-- ------------------------------以上為tab bar--------------------------------- -->
+<!-- ------------------------------以下為result state--------------------------------- -->
+    @if (currentTab === 'results') {
+      <div class="tab-content results-view">
+        <div class="question-card">
+          <h2>回覆統計摘要</h2>
+          <p>目前共有 0 份回覆</p>
+          <div class="empty-state">
+            <p>（串接圖表 API，如 Chart.js）</p>
+          </div>
+        </div>
+      </div>
+    }
+
+  <!-- ------------------------------以上為result state--------------------------------- -->
+  <!-- ------------------------------以下為edit state--------------------------------- -->
+  @if (currentTab === 'edit') {
+
+
+  <div class="form-class">
+<!-- -----------------header------------------ -->
+    <div class="form-header">
+      <p>問卷名稱:</p>
+      <input class="title-input" [(ngModel)]="questionnares.title" placeholder="問卷標題">
+    </div>
+
+
+  @for (q of questionnares.questions; track q.id; let i = $index) {
+    <div class="question-card">
+      <div class="card-header">
+        <input [(ngModel)]="q.title" placeholder="請輸入問題敘述">
+
+        <select [(ngModel)]="q.type">
+            <option value="text">簡答</option>
+            <option value="radio">單選</option>
+            <option value="checkbox">多選</option>
+        </select>
+      </div>
+<!-- -----------------body--------------------- -->
+      <div class="card-body">
+        @if (q.type === 'text') {
+        <input type="text">
+        }
+        @if (q.type === 'radio' || q.type === 'checkbox') {
+            @for (opt of q.options; track $index; let optIdx = $index) {
+              <div class="option-row">
+                <input [type]="q.type" disabled>
+                <input [(ngModel)]="q.options![optIdx]" placeholder="選項內容">
+                <button (click)="deleteOption(q, optIdx)">✕</button>
+              </div>
+            }
+            <button class="add-opt-btn" (click)="addOption(q)">+ 新增選項</button>
+          }
+      </div>
+      <!-- ------------------------------------footer------- -->
+        <div class="card-footer">
+          <button class="delete-btn" (click)="deleteQuestion(i)">刪除題目</button>
+        </div>
+        </div>
+  }
+
+    <div class="actions">
+      <button class="add-q-btn" (click)="addQuestion()">⊕ 新增問題</button>
+      <button class="save-btn" (click)="save()">儲存問卷</button>
+    </div>
+  </div>
+
+}
+
+}@else {
+  <p>載入中或找不到問卷...</p>
+}

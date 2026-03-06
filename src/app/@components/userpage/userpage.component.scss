@@ -1,0 +1,224 @@
+$primary-purple: #857FD2;
+$light-purple: #9893D9;
+$bg-cream: #FEF8E0;
+$white: #FFFFFF;
+$bg-soft: #F4F3FB;
+$text-dark: #443D4F;
+$text-grey: #9A95A1;
+
+
+// 設定filter bar(外殼)的樣式
+.filtbar{
+  background-color: white;
+  box-shadow: 0px 1px 5px rgba(220, 215, 213, 0.5);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 100px;
+  position: fixed;
+  top: 68px;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+// 設定搜尋欄位的位置
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+// 設定放大鏡icon的樣式
+.search-wrapper .material-symbols-outlined {
+  position: absolute;
+  left: 8px;
+  color: #9a95a1;
+  pointer-events: none; /* 讓點擊穿透到 input */
+}
+
+// 設定搜尋欄位的樣式
+.search-wrapper input {
+  padding-left: 35px;
+  height: 32px;
+  border: transparent;
+  border-radius: 10px;
+  background-color: #F4F3FB;
+  color: #9A95A1;
+}
+
+// 調整input date樣式
+input[type="date"] {
+  // 清除預設樣式
+  appearance: none;
+  border: none;
+  border-bottom: none;
+  padding: 6px 14px;
+
+  // 新增自訂樣式
+  background: #F4F3FB;
+  color: #9A95A1;
+  border-radius: 1000px;
+  margin: 8px;
+}
+
+// 游標靠近日曆icon時，變成手指
+input[type="date"]:hover{
+  cursor: pointer;
+}
+
+// input[type="date"]:focus {
+//   outline: none;
+//   border-bottom: 2px solid #3f51b5;
+// }
+
+//調整date filter的整體排版和色彩
+.choosedate{
+  display: flex;
+  color: #9A95A1;
+  font-size: clamp(5px, 8vw, 12px);
+}
+// debug code of date filter
+// .theday{
+//   background-color: aqua;
+//   margin-right: 16px;
+// }
+
+
+//底下大layout
+.listcontent{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #FEF8E0;
+  padding-top: 50px;
+
+  // 當處於編輯模式時
+  &.editing-active {
+    display: grid;
+    grid-template-columns:30px 920px
+  }
+}
+
+.delete-btn {
+  border: transparent;
+  background-color: transparent;
+  animation: fadeIn 1s;
+}
+
+.delete-btn .material-symbols-outlined{
+  color: #9a95a1;
+}
+
+.delete-btn:hover {
+  cursor: pointer;
+}
+
+
+
+.questionlist{
+  background-color: white;
+  width: 80vw;
+  margin: 0.5rem;
+  padding: 1rem;
+  border: transparent;
+  border-radius: 25px;
+
+  display: grid;
+  grid-template-columns: 80px minmax(200px, 400px) 120px 120px 200px;
+  align-items: center;
+  text-align: center;   // 讓每個欄位置中
+}
+.questionlist:hover{
+  background-color: #F4F3FB;
+  box-shadow: 0 4px 12px rgba($primary-purple, 0.1);
+  cursor: pointer;
+}
+
+.data{
+  margin: 1rem;
+  align-items: center;
+}
+
+.datatitle{
+  color: #443D4F;
+  font-weight: 600;
+}
+
+.dataid{
+  color: #9A95A1;
+  font-weight: 500;
+}
+
+.datadate{
+  color: #9A95A1;
+}
+
+
+.avaliable{
+  color: #86E2A5;
+}
+
+.unavailable{
+  color: salmon;
+}
+
+// edit button
+.edit-btn{
+  background-color: rgb(133, 127, 210, 0.2);
+  border: transparent;
+  border-radius: 10px;
+
+  position: fixed;
+  right: 0;
+  bottom: 50px;
+
+  height: 45px;
+  width: 45px;
+  align-items: center;
+}
+
+.edit-btn:hover{
+  background-color: rgba(60, 57, 124, 0.2);
+  cursor: pointer;
+
+}
+
+.edit-btn .material-symbols-outlined{
+  color: #9a95a1;
+
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 20
+}
+
+.creatNew{
+  background-color: rgba($white, 0.5);
+  color: $primary-purple;
+  border: dashed 2px  rgba($primary-purple, 0.3);
+  border-radius: 25px;
+  width: 80vw;
+  height: 100px;
+  margin: 0.5rem;
+}
+
+.creatNew:hover{
+  background-color: $white;
+  color: $primary-purple;
+  box-shadow: 0 4px 12px rgba($primary-purple, 0.1);
+  cursor: pointer;
+}
+
+// .creatNew-background{
+//   background-color: #FEF8E0;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+
+

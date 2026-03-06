@@ -1,0 +1,41 @@
+.example-full-width {
+  width: fit-content;
+}
+
+.example-form {
+  display: flex;
+  flex-direction: column; // 強制垂直排列
+  gap: 15px;              // 欄位之間的垂直間距
+  padding: 20px;          // 內邊距
+}
+
+.example-full-width {
+  width: 100%;            // 讓寬度撐滿整個 Dialog
+  // 移除之前的 margin-left: 20px，除非你真的想要縮進去
+}
+
+// 調整input date樣式
+input[type="date"] {
+  // 清除預設樣式
+  appearance: none;
+  border: none;
+  border-bottom: none;
+  padding: 6px 14px;
+
+  // 新增自訂樣式
+  background: #F4F3FB;
+  color: #9A95A1;
+  border-radius: 1000px;
+  margin: 8px;
+}
+
+// 游標靠近日曆icon時，變成手指
+input[type="date"]:hover{
+  cursor: pointer;
+}
+
+.dialog-date{
+  display: flex;
+  margin-left: 20px;
+  margin-bottom: 50px;
+}

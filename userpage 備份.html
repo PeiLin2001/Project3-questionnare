@@ -1,0 +1,66 @@
+<!-- filter bar -->
+<div class="filtbar">
+  <!-- filter bar . search -->
+  <div class="search-wrapper">
+    <span class="material-symbols-outlined">search</span>
+    <input type="text" placeholder="search" [(ngModel)]="searchText">
+  </div>
+  <!-- filter bar . choosedate -->
+  <div class="choosedate">
+
+    <!-- filter bar . choosedate . from -->
+    <div class="theday">
+    <label>From:</label><input type="date" [(ngModel)]="fromDate">
+    </div>
+
+    <!-- filter bar . choosedate . to -->
+    <div class="theday">
+    <label>To:</label><input type="date" [(ngModel)]="toDate">
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- list -->
+<div class="listcontent">
+@for (item of filteredList; track $index) {
+<div class="questionlist">
+  <div class="data">
+    <p class="dataid">{{item.id}}</p>
+  </div>
+
+  <div class="data">
+    <p class="datatitle">{{item.title}}</p>
+  </div>
+
+  <div class="data">
+    <p class="datadate">{{item.startDate}}</p>
+  </div>
+
+  <div class="data">
+    <p class="datadate">{{item.endDate}}</p>
+  </div>
+
+<div class="data">
+@if (item.status === 'notStarted')
+{
+  <button id="startbut">start</button>
+}
+@if (item.status === 'done')
+{
+  <button id="donebut">
+    Done {{ item.completedDate | date:'yyyy-MM-dd'}}
+  </button>
+}
+@if (item.status === 'unavailable')
+{
+  <button id="unavaliablebut" disabled>unavailable</button>
+}
+</div>
+
+<!--div of for loop ˇ -->
+</div>
+}
+</div>
