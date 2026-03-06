@@ -10,7 +10,4 @@ import { NavbarComponent } from './@shell/navbar/navbar.component';
 })
 export class AppComponent {
   title = '0302-project';
-
-
-
 }
